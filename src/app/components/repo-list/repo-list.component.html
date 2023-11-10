@@ -1,0 +1,5 @@
+@for (repository of repositories; track repository.name) {
+    <li> {{ repository.name }} </li>
+} @empty {
+    <li> There are no items. </li>
+}
