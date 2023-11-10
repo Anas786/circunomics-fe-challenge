@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RepositoryDataResponse } from '../../interfaces/repository-data';
+import { RepoDataResponse } from '../../interfaces/repo-data';
 import { DateService } from '../date/date.service';
 import { apiURL } from 'src/app/config/config';
 
@@ -14,7 +14,7 @@ export class RepoService {
     private dateService: DateService,
   ) { }
 
-  getGitHubRepositories(pageNum: number): Observable<RepositoryDataResponse> {
+  getGitHubRepos(pageNum: number): Observable<RepoDataResponse> {
     const formatedDate = this.dateService.getPreviousMonthDate();
 
     let params = new HttpParams()
@@ -26,6 +26,6 @@ export class RepoService {
       params = params.set('page', pageNum.toString());
     }
 
-    return this.httpClient.get<RepositoryDataResponse>(`${apiURL}search/repositories`, { params });
+    return this.httpClient.get<RepoDataResponse>(`${apiURL}search/repositories`, { params });
   }
 }

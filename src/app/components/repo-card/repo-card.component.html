@@ -4,19 +4,21 @@
     <div class="text-container">
         <div  
             class="name-container margin-b"
+            [class.clickable]="headerClickable"
+            (click)="headerClickable ? openModal(repository) : false"
         >
             <p class="text-header text-b margin-r">
                 {{ repository.name }}
             </p>
-            
+
             <ng-container *ngIf="headerClickable">
-                @for (item of [].constructor(5); track $index; let idx = $index) {
-                <span
-                    class="rating"
-                    [class.active]="rating > 0 && rating >= i + 1"
-                >
-                    &#9733;
-                </span>
+                @for (i of [].constructor(5); track $index ) {
+                    <span
+                        class="rating"
+                        [class.active]="rating > 0 && rating >= i + 1"
+                    >
+                        &#9733;
+                    </span>
                 }
             </ng-container>
         </div>

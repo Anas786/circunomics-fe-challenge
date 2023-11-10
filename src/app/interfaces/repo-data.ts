@@ -1,10 +1,10 @@
-export interface RepositoryDataResponse {
+export interface RepoDataResponse {
     total_count: number,
     incomplete_results: boolean,
-    items: RepositoryData[],
+    items: RepoData[],
 }
 
-export interface RepositoryData {
+export interface RepoData {
     id: number,
     node_id: string,
     name: string,

@@ -1,1 +1,9 @@
-<p>{{ this.repos[0].name }}</p>
+<app-repo-list
+  [repositories]="repos">
+</app-repo-list>
+
+<app-repo-modal
+    *ngIf="showModal && modalData"
+    [modalData]="modalData"
+    (closeModal)="onCloseModal()"
+></app-repo-modal>
