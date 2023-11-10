@@ -1,5 +1,10 @@
 @for (repository of repositories; track repository.name) {
-    <li> {{ repository.name }} </li>
+    <div class="card-container">
+        <app-repo-card
+            [repository]="repository"
+            [rating]="(ratingData && ratingData[repository.name]) ?? 0">
+        </app-repo-card>
+    </div>
 } @empty {
-    <li> There are no items. </li>
+    <span> There are no items. </span>
 }

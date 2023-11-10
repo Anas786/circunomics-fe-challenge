@@ -1,0 +1,32 @@
+<div class="card" *ngIf="repository">
+    <img [src]="repository.owner.avatar_url" />
+
+    <div class="text-container">
+        <div  
+            class="name-container margin-b"
+        >
+            <p class="text-header text-b margin-r">
+                {{ repository.name }}
+            </p>
+            
+            <ng-container *ngIf="headerClickable">
+                @for (item of [].constructor(5); track $index; let idx = $index) {
+                <span
+                    class="rating"
+                    [class.active]="rating > 0 && rating >= i + 1"
+                >
+                    &#9733;
+                </span>
+                }
+            </ng-container>
+        </div>
+
+        <p class="margin-b">{{ repository.description }}</p>
+
+        <div class="stars-and-issues-container">
+            <div class="margin-r"><span class="text-b">{{ repository.stargazers_count }}</span> Stars</div>
+            <div class="margin-r"><span class="text-b">{{ repository.open_issues_count }}</span> Issues</div>
+            <span class="text-b">{{ repository.owner.login }}</span>
+        </div>
+    </div>
+</div>

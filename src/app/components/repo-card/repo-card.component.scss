@@ -1,0 +1,45 @@
+.card {
+    display: flex;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(134, 134, 134);
+
+    img {
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .text-container {
+        padding: 10px;
+
+        .name-container {
+            display: flex;
+            
+            .rating {
+                margin-right: 5px;
+    
+                &.active {
+                    color: white;
+                }
+            }
+        }
+
+        .stars-and-issues-container {
+            display: flex;
+            align-items: center;
+
+            div {
+                padding: 5px;
+                border: 1px solid black;
+            }
+        }
+    }
+
+    .clickable {
+        cursor: pointer;
+
+        &:hover {
+            color: darkgray;
+            transition: 0.25s;
+        }
+    }
+}
