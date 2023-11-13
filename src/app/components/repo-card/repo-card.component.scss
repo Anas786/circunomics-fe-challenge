@@ -1,12 +1,15 @@
 .card {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 5px;
 
     .avatar-image {
         background-size: cover;
         background-position: center;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
       }
 
     img {

@@ -66,7 +66,7 @@ export class RepoListComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    const threshold = 500;
+    const threshold = 800;
     let currentScrollPosition = document.documentElement.scrollTop + document.documentElement.clientHeight;
     let maximumScrollPosition = document.documentElement.scrollHeight;
 

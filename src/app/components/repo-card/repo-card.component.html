@@ -1,34 +1,33 @@
 <ng-container *ngIf="repository">
     <mat-card class="card">
-        <mat-card-header>
-            <div mat-card-avatar class="avatar-image" [ngStyle]="{'background-image': 'url(' + repository.owner.avatar_url + ')'}"></div>
-            <mat-card-title>{{ repository.name }}</mat-card-title>
-            <div class="name-container margin-b" [class.clickable]="headerClickable" (click)="headerClickable ? openModal(repository) : null">
-                @if (headerClickable) {
-                    @for (i of [1,2,3,4,5]; track $index) {
-                        <span class="rating"
-                            [class.active]="rating > 0 && rating >= i + 1">
-                            <mat-icon>star</mat-icon>
-                        </span>
-                    }
-                }
-                
-            </div>
-            <mat-card-subtitle>{{ repository.owner.login }}</mat-card-subtitle>
-        </mat-card-header>
-  
-    <mat-card-content>
-        <p class="margin-b">{{ repository.description }}</p>
-    </mat-card-content>
+        <div mat-card-avatar class="avatar-image" [ngStyle]="{'background-image': 'url(' + repository.owner.avatar_url + ')'}"></div>
+        <div>
+            <mat-card-header>
+                <mat-card-title [class.clickable]="headerClickable" (click)="headerClickable ? openModal(repository) : null">{{ repository.name }}</mat-card-title>
+                <div class="name-container margin-b">
+                    @if (headerClickable) {
+                        @for (i of [1,2,3,4,5]; track $index) {
+                            <span class="rating"
+                                [class.active]="rating > 0 && rating >= i + 1">
+                                <mat-icon>star</mat-icon>
+                            </span>
+                        }
+                    }  
+                </div>
+            </mat-card-header>
       
-    <mat-card-actions class="stars-and-issues-container">
-        <div class="margin-r">
-            <span class="text-b">{{ repository.stargazers_count }}</span> Stars
+        <mat-card-content>
+            <p class="margin-b">{{ repository.description }}</p>
+        </mat-card-content>
+          
+        <mat-card-actions class="stars-and-issues-container">
+            <mat-chip-listbox aria-label="repo-attr">
+                <mat-chip-option disabled>{{ repository.stargazers_count }} Stars</mat-chip-option>
+                <mat-chip-option disabled>{{ repository.open_issues_count }} Issues</mat-chip-option>
+              </mat-chip-listbox>&nbsp;
+            <mat-card-subtitle>Submitted 30 days ago by{{ repository.owner.login }}</mat-card-subtitle>
+        </mat-card-actions>
+        <ng-content></ng-content>
         </div>
-        <div class="margin-r">
-            <span class="text-b">{{ repository.open_issues_count }}</span> Issues
-        </div>
-    </mat-card-actions>
-    <ng-content></ng-content>
     </mat-card>
   </ng-container>
