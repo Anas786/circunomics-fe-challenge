@@ -1,4 +1,4 @@
-# GithubRepoApp
+# Circunomics FE Challenge (Github App)
 
 ## Implemented Features
 * User should be able to list the most starred Github repos that were created in the last 30 days. 
@@ -17,10 +17,9 @@
 ## Project details and preferences
 
 * I used angular material for desiging. I could have easily done the task without it as well, but used it to demonstrate my experience with UI Frameworks.
-
 * Used some Angular 17 features like inject method and @for/@if to demonstrate up-to-date practices.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+* Used Git Feature-based workflow.
+* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
 ## Development server
 
