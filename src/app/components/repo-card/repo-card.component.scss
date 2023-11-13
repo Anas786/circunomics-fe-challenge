@@ -1,36 +1,38 @@
 .card {
     display: flex;
-    background-color: rgb(230, 230, 230);
-    border: 1px solid rgb(134, 134, 134);
+
+    .avatar-image {
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
 
     img {
         height: 120px;
         object-fit: cover;
     }
 
-    .text-container {
-        padding: 10px;
+    .name-container {
+        display: flex;
+        
+        .rating {
+            margin-right: 5px;
 
-        .name-container {
-            display: flex;
-            
-            .rating {
-                margin-right: 5px;
-    
-                &.active {
-                    color: white;
-                }
+            &.active {
+                color: rgb(255, 140, 0);
             }
         }
+    }
 
-        .stars-and-issues-container {
-            display: flex;
-            align-items: center;
+    .stars-and-issues-container {
+        display: flex;
+        align-items: center;
 
-            div {
-                padding: 5px;
-                border: 1px solid black;
-            }
+        div {
+            padding: 5px;
+            border: 1px solid black;
         }
     }
 

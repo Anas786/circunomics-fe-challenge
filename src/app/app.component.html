@@ -1,9 +1,6 @@
-<app-repo-list
-  [repositories]="repos">
-</app-repo-list>
+<router-outlet></router-outlet>
 
 <app-repo-modal
     *ngIf="showModal && modalData"
     [modalData]="modalData"
-    (closeModal)="onCloseModal()"
-></app-repo-modal>
+    (closeModal)="onCloseModal()" />

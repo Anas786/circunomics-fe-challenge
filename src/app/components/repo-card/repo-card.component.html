@@ -1,34 +1,34 @@
-<div class="card" *ngIf="repository">
-    <img [src]="repository.owner.avatar_url" />
-
-    <div class="text-container">
-        <div  
-            class="name-container margin-b"
-            [class.clickable]="headerClickable"
-            (click)="headerClickable ? openModal(repository) : false"
-        >
-            <p class="text-header text-b margin-r">
-                {{ repository.name }}
-            </p>
-
-            <ng-container *ngIf="headerClickable">
-                @for (i of [].constructor(5); track $index ) {
-                    <span
-                        class="rating"
-                        [class.active]="rating > 0 && rating >= i + 1"
-                    >
-                        &#9733;
-                    </span>
+<ng-container *ngIf="repository">
+    <mat-card class="card">
+        <mat-card-header>
+            <div mat-card-avatar class="avatar-image" [ngStyle]="{'background-image': 'url(' + repository.owner.avatar_url + ')'}"></div>
+            <mat-card-title>{{ repository.name }}</mat-card-title>
+            <div class="name-container margin-b" [class.clickable]="headerClickable" (click)="headerClickable ? openModal(repository) : null">
+                @if (headerClickable) {
+                    @for (i of [1,2,3,4,5]; track $index) {
+                        <span class="rating"
+                            [class.active]="rating > 0 && rating >= i + 1">
+                            <mat-icon>star</mat-icon>
+                        </span>
+                    }
                 }
-            </ng-container>
-        </div>
-
+                
+            </div>
+            <mat-card-subtitle>{{ repository.owner.login }}</mat-card-subtitle>
+        </mat-card-header>
+  
+    <mat-card-content>
         <p class="margin-b">{{ repository.description }}</p>
-
-        <div class="stars-and-issues-container">
-            <div class="margin-r"><span class="text-b">{{ repository.stargazers_count }}</span> Stars</div>
-            <div class="margin-r"><span class="text-b">{{ repository.open_issues_count }}</span> Issues</div>
-            <span class="text-b">{{ repository.owner.login }}</span>
+    </mat-card-content>
+      
+    <mat-card-actions class="stars-and-issues-container">
+        <div class="margin-r">
+            <span class="text-b">{{ repository.stargazers_count }}</span> Stars
         </div>
-    </div>
-</div>
+        <div class="margin-r">
+            <span class="text-b">{{ repository.open_issues_count }}</span> Issues
+        </div>
+    </mat-card-actions>
+    <ng-content></ng-content>
+    </mat-card>
+  </ng-container>
